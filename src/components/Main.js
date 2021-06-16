@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchMovies from './SearchMovies';
 
 class Main extends Component {
   
@@ -6,6 +7,7 @@ class Main extends Component {
     return (
       <div className="container">
         <h1 className="title">React Movie search app</h1>
+        <SearchMovies/>
       </div>
     );
   }
