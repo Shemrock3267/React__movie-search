@@ -37,10 +37,10 @@ small {
 }
 
 .label {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 0.2rem;
+  margin-left: 2rem;
   text-transform: uppercase;
-  margin-left: 1rem;
 }
 
 .input {
@@ -79,6 +79,6 @@ small {
   }
 
   .label {
-    margin: 0 auto;
+    margin-bottom: 0;
   }
 }
