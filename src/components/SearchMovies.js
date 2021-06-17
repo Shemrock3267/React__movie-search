@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MovieCard from './MovieCard';
 
 function SearchMovies() {
   const [query, setQuery] = useState('');
@@ -13,31 +14,40 @@ function SearchMovies() {
       const response = await fetch(url);
       const data = await response.json();
       setMovies(data.results);
-      console.log(data.results)
+      
     } catch(err) {
       console.error(err);
     }
   }
 
   return (
-    <form className="form" onSubmit={searchMovies}>
-      <label 
-        htmlFor="query" 
-        className="label">Looking for a movie?
-      </label>
-      <input 
-        className="input" 
-        type="text" 
-        name="query"
-        placeholder="i.e. Lord of the Rings"
-        onChange={(e)=> setQuery(e.target.value)}
-      />
-      <button 
-        className="button" 
-        type="submit" 
-        >Search
-      </button>
+    <>
+      <form className="form" onSubmit={searchMovies}>
+        <label 
+          htmlFor="query" 
+          className="label">Looking for a movie?
+        </label>
+        <input 
+          className="input" 
+          type="text" 
+          name="query"
+          placeholder="i.e. Lord of the Rings"
+          onChange={(e)=> setQuery(e.target.value)}
+        />
+        <button 
+          className="button" 
+          type="submit" 
+          >Search
+        </button>
       </form>
+      <div className="card-list">
+        {movies.filter(movie => movie.poster_path).map(movie => {
+          return (
+            <MovieCard movie={movie} key={movie.id}/>
+          )
+        })}
+      </div>
+    </>
   )
 }
 
